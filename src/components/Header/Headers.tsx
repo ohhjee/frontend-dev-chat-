@@ -5,6 +5,7 @@ import img_1 from "../../assets/image/img_!.png";
 import { Likes } from "../LikeBtn";
 import { ReplyPostForm } from "../ReplyPostForm";
 import { PostReplies } from "../PostReplies";
+import { PostForm } from "../PostForm";
 
 export interface REPLYDATA {
   postId: string | number;
