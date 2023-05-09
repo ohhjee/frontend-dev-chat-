@@ -1,1 +1,1 @@
-export const _Base_API_URL: string = process.env.REACT_APP_BASE_URL
+export const _Base_API_URL = process.env.REACT_APP_BASE_URL
