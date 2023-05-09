@@ -7,10 +7,15 @@ interface ReplyPostProps {
   reloadData: () => void;
 }
 
-export const ReplyPostForm: React.FC<ReplyPostProps> = ({ postId, reloadData }) => {
+export const ReplyPostForm: React.FC<ReplyPostProps> = ({
+  postId,
+  reloadData,
+}) => {
   const [reply, setReply] = React.useState<string>("");
 
-  const inputChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const inputChangeHandler = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setReply(event.target.value);
   };
 
@@ -41,8 +46,10 @@ export const ReplyPostForm: React.FC<ReplyPostProps> = ({ postId, reloadData }) 
 
       <div className="absolute right-1 bottom-2">
         <button
+          id="send"
           type="submit"
-          className="flex items-center justify-center w-6 h-6 border rounded-full hover:bg-blue-200 hover:text-white">
+          className="flex items-center justify-center w-6 h-6 border rounded-full hover:bg-blue-200 hover:text-white"
+        >
           <PaperAirplaneIcon className="w-3 h-3 text-blue-500 " />
         </button>
       </div>

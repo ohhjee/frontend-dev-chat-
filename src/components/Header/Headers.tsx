@@ -16,11 +16,12 @@ export type UserPost = {
   id: number;
   name: string;
   post: string;
+  date: string;
 };
 
 export const Headers = () => {
   const [fetchData, setFetchData] = useState(false);
-  const [show, setShow] = React.useState(0);
+  const [show, setShow] = React.useState<boolean | number>(false);
   const [replies, setReplies] = useState<REPLYDATA[]>([]);
 
   const userPosts: UserPost[] = [
@@ -28,21 +29,25 @@ export const Headers = () => {
       id: 1,
       name: "user_1",
       post: "Life is a beautiful journey, and social media is your digital passport to explore it. Connect with friends, discover new passions, and share your experiences with the world. Embrace the power of social media and make every moment count.",
+      date: "2weeks ago",
     },
     {
       id: 2,
       name: "user_2",
       post: "Connecting with loved ones has never been easier! Stay in touch with family and friends, share your life's highlights, and stay updated with the latest trends with our social media platform. Join now and experience the power of connection!",
+      date: "1 month ago",
     },
     {
       id: 3,
       name: "user_3",
       post: "Connecting with friends and family has never been easier thanks to social media! Stay up-to-date, share your experiences, and engage with a global community all from the comfort of your own device. Let's stay connected, no matter where we are in the world! 🌎📱 #socialmedia #stayconnected #globalcommunity",
+      date: "1 month ago",
     },
     {
       id: 4,
       name: "user_4",
       post: "Connecting with loved ones has never been easier! Stay connected and share your experiences with the world on our platform. Join us today and let's make memories that last a lifetime! 📱💻🌍 #socialmedia #stayconnected #memories #technology",
+      date: "1 month ago",
     },
   ];
 
@@ -74,6 +79,9 @@ export const Headers = () => {
                     <div className="flex items-center space-x-2">
                       <img src={img_1} alt="" width={30} />
                       <div className="font-semibold">{userPost.name}</div>
+                      <div>
+                        <small className="text-gray-400">{userPost.date}</small>
+                      </div>
                     </div>
 
                     <span
@@ -90,7 +98,10 @@ export const Headers = () => {
               {show === userPost.id ? (
                 <div className="h-[20vh] mt-1 relative">
                   <div className="absolute top-1 right-1">
-                    <PlusIcon className="w-5 h-5 text-blue-400 rotate-[45deg]" />
+                    <PlusIcon
+                      className="w-5 h-5 text-blue-400 rotate-[45deg]"
+                      onClick={() => setShow(false)}
+                    />
                   </div>
 
                   <ReplyPostForm
