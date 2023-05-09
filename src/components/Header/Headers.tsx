@@ -5,6 +5,7 @@ import img_1 from "../../assets/image/img_!.png";
 import { Likes } from "../LikeBtn";
 import { ReplyPostForm } from "../ReplyPostForm";
 import { PostReplies } from "../PostReplies";
+import { PostForm } from "../PostForm";
 
 export interface REPLYDATA {
   postId: string | number;
@@ -61,6 +62,7 @@ export const Headers = () => {
 
   return (
     <div>
+      <PostForm />
       <div className="flex items-center ">
         <div className="">
           {userPosts.map((userPost) => (
@@ -76,7 +78,8 @@ export const Headers = () => {
 
                     <span
                       onClick={() => setShow(userPost.id)}
-                      className="items-center hidden text-sm font-bold text-blue-600 capitalize cursor-pointer md:flex ">
+                      className="items-center hidden text-sm font-bold text-blue-600 capitalize cursor-pointer md:flex "
+                    >
                       <ArrowUturnLeftIcon className="w-4 h-4" />
                       reply
                     </span>
@@ -90,11 +93,18 @@ export const Headers = () => {
                     <PlusIcon className="w-5 h-5 text-blue-400 rotate-[45deg]" />
                   </div>
 
-                  <ReplyPostForm reloadData={refetchData} postId={userPost.id} />
+                  <ReplyPostForm
+                    reloadData={refetchData}
+                    postId={userPost.id}
+                  />
                 </div>
               ) : null}
 
-              {replies.length > 0 ? <PostReplies replies={replies} postId={userPost.id} /> : "No replies"}
+              {replies.length > 0 ? (
+                <PostReplies replies={replies} postId={userPost.id} />
+              ) : (
+                "No replies"
+              )}
             </div>
           ))}
         </div>
