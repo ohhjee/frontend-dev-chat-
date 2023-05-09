@@ -8,7 +8,6 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/solid";
 import { ReplyPostForm } from "./ReplyPostForm";
-import { Modal } from "./modal";
 
 interface PostRepliesProps {
   postId: string | number;
