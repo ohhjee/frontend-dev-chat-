@@ -19,7 +19,7 @@ export type UserPost = {
 
 export const Headers = () => {
   const [fetchData, setFetchData] = useState(false);
-  const [show, setShow] = React.useState<boolean>(false);
+  const [show, setShow] = React.useState<boolean | number>(false);
   const [replies, setReplies] = useState<REPLYDATA[]>([]);
 
   const userPosts: UserPost[] = [

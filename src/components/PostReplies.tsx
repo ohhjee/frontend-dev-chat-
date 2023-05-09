@@ -15,7 +15,7 @@ export const PostReplies: React.FC<PostRepliesProps> = ({
   replies: data,
 }) => {
   const [replies, setReplies] = React.useState<Array<REPLYDATA>>([]);
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = React.useState<boolean | number | string>(false);
   const [fetchData, setFetchData] = React.useState(false);
 
   const refetchData = () => {
@@ -44,7 +44,7 @@ export const PostReplies: React.FC<PostRepliesProps> = ({
                     </div>
 
                     <span
-                      onClick={() => setShow(reply.id)}
+                      onClick={() => setShow(reply.postId)}
                       className="items-center hidden text-sm font-bold  capitalize cursor-pointer md:flex "
                     >
                       <ArrowUturnLeftIcon className="w-4 h-4" />
@@ -54,7 +54,7 @@ export const PostReplies: React.FC<PostRepliesProps> = ({
                   <div className="text-md "> {reply.reply}</div>
                 </div>
               </div>
-              {show === reply.id ? (
+              {show === reply.postId ? (
                 <div className="h-[20vh] mt-1 relative">
                   <div className="absolute top-1 right-1">
                     <PlusIcon
@@ -63,7 +63,10 @@ export const PostReplies: React.FC<PostRepliesProps> = ({
                     />
                   </div>
 
-                  <ReplyPostForm reloadData={refetchData} postId={reply.id} />
+                  <ReplyPostForm
+                    reloadData={refetchData}
+                    postId={reply.postId}
+                  />
                 </div>
               ) : null}
             </li>
