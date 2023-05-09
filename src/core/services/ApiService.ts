@@ -1,6 +1,6 @@
 import type { AxiosInstance, AxiosRequestConfig } from "axios"
 import axios from "axios"
-import { _Base_API_URL } from "../../constant"
+// import { _Base_API_URL } from "../../constant"
 
 const axiosConfig = {
     baseURL: _Base_API_URL,
