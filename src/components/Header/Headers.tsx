@@ -19,7 +19,7 @@ export type UserPost = {
 
 export const Headers = () => {
   const [fetchData, setFetchData] = useState(false);
-  const [show, setShow] = React.useState(0);
+  const [show, setShow] = React.useState<boolean>(false);
   const [replies, setReplies] = useState<REPLYDATA[]>([]);
 
   const userPosts: UserPost[] = [
@@ -76,7 +76,8 @@ export const Headers = () => {
 
                     <span
                       onClick={() => setShow(userPost.id)}
-                      className="items-center hidden text-sm font-bold text-blue-600 capitalize cursor-pointer md:flex ">
+                      className="items-center hidden text-sm font-bold text-blue-600 capitalize cursor-pointer md:flex "
+                    >
                       <ArrowUturnLeftIcon className="w-4 h-4" />
                       reply
                     </span>
@@ -87,14 +88,24 @@ export const Headers = () => {
               {show === userPost.id ? (
                 <div className="h-[20vh] mt-1 relative">
                   <div className="absolute top-1 right-1">
-                    <PlusIcon className="w-5 h-5 text-blue-400 rotate-[45deg]" />
+                    <PlusIcon
+                      className="w-5 h-5 text-blue-400 rotate-[45deg]"
+                      onClick={() => setShow(false)}
+                    />
                   </div>
 
-                  <ReplyPostForm reloadData={refetchData} postId={userPost.id} />
+                  <ReplyPostForm
+                    reloadData={refetchData}
+                    postId={userPost.id}
+                  />
                 </div>
               ) : null}
 
-              {replies.length > 0 ? <PostReplies replies={replies} postId={userPost.id} /> : "No replies"}
+              {replies.length > 0 ? (
+                <PostReplies replies={replies} postId={userPost.id} />
+              ) : (
+                "No replies"
+              )}
             </div>
           ))}
         </div>
