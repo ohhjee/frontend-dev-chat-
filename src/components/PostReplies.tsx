@@ -49,6 +49,7 @@ export const PostReplies: React.FC<PostRepliesProps> = ({
                   <div className="flex items-center space-x-4 mt-4">
                     <div className="">
                       <button
+                        aria-label="Cancel"
                         id="cancel"
                         className="bg-gray-500 p-2 rounded text-white font-medium"
                         onClick={() => setModal(false)}
@@ -58,6 +59,7 @@ export const PostReplies: React.FC<PostRepliesProps> = ({
                     </div>
                     <div className="">
                       <button
+                        aria-label="delete"
                         id="  dlete"
                         className="bg-red-500 p-2 rounded text-white font-medium"
                       >

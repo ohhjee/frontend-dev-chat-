@@ -46,6 +46,7 @@ export const ReplyPostForm: React.FC<ReplyPostProps> = ({
 
       <div className="absolute right-1 bottom-2">
         <button
+          aria-label="send"
           id="send"
           type="submit"
           className="flex items-center justify-center w-6 h-6 border rounded-full hover:bg-blue-200 hover:text-white"
