@@ -41,6 +41,9 @@ export const PostReplies: React.FC<PostRepliesProps> = ({
                     <div className="flex items-center space-x-2">
                       <img src={img_1} alt="" width={30} />
                       <div className="font-semibold">John Doe</div>
+                      <div>
+                        <small className="text-gray-400">2 weeks ago</small>
+                      </div>
                     </div>
 
                     <span
