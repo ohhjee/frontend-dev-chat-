@@ -67,7 +67,6 @@ export const Headers = () => {
 
   return (
     <div>
-      <PostForm />
       <div className="flex items-center ">
         <div className="">
           {userPosts.map((userPost) => (
